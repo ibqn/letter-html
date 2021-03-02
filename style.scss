@@ -161,7 +161,7 @@ body {
       }
     }
 
-    .container-sun {
+    .sun {
       grid-area: sun;
       align-self: end;
       justify-self: start;
@@ -180,6 +180,16 @@ body {
         @media (max-width: 768px) {
           max-width: 600px;
         }
+      }
+    }
+
+    .planes {
+      width: 100%;
+      grid-area: sun;
+      justify-self: start;
+      align-self: end;
+      @media (max-width: 768px) {
+        display: none;
       }
     }
   }
