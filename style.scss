@@ -1,0 +1,186 @@
+@import url('https://fonts.googleapis.com/css2?family=Alegreya:wght@400;500;700&display=swap');
+
+$color-1: #ffe1d1;
+$color-2: #ffdbca;
+
+// :root {
+//   /* BASE COLORS */
+//   --color-1: #ffe1d1;
+//   --color-2: #ffdbca;
+// }
+
+body {
+  margin: 0;
+  padding: 0;
+  font-family: Alegreya, serif;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+// CSS best practices
+
+//   Box (position, display, width, margin, etc.)
+//   Text
+//   Background
+//   Border
+//   Other (Alphabetically)
+
+.container {
+  width: 100%;
+  background: linear-gradient(to left, $color-1, $color-2);
+}
+
+.content-wrapper {
+  max-width: 1500px;
+  margin: 0 auto;
+}
+
+.header {
+  display: grid;
+  grid-template-columns: 150px 1fr;
+  align-content: center;
+  font-weight: bold;
+  font-size: 20px;
+
+  &-logo {
+    align-self: center;
+  }
+
+  &-letter {
+    font-size: 30px;
+    color: #6a4a39;
+  }
+}
+
+.menu {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  opacity: 0.7;
+  list-style: none;
+
+  &-item {
+    margin: 0 47px;
+
+    &:last-of-type {
+      margin-right: 0;
+      color: #ff7676;
+      border-bottom: 4px solid #f8d1be;
+    }
+  }
+}
+
+.hero {
+  width: 100%;
+  min-height: 550px;
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-template-rows: 1fr;
+  border-bottom: 1px solid #ff8989;
+
+  &-waves {
+    grid-column-start: 1;
+    grid-row-start: 1;
+    width: 100%;
+    height: auto;
+    align-self: end;
+  }
+
+  &-container {
+    max-width: 1500px;
+    margin: 0 auto;
+    position: relative;
+    grid-column-start: 1;
+    grid-row-start: 1;
+    min-height: 550px;
+    display: grid;
+    grid-template-areas:
+      'lamp title sun sun'
+      'lamp title sun sun';
+
+    grid-template-columns: repeat(4, 1fr);
+    grid-template-rows: repeat(2, minmax(0px, auto));
+
+    .lamp {
+      grid-area: lamp;
+      height: auto;
+      justify-self: start;
+      align-self: end;
+      position: absolute;
+      bottom: -350px;
+
+      @media (max-width: 960px) {
+        display: none;
+      }
+    }
+
+    .cta {
+      grid-area: title;
+      justify-self: end;
+      align-self: center;
+      font-family: Alegreya;
+      font-style: normal;
+      line-height: normal;
+      z-index: 3;
+
+      &-title {
+        font-size: 60px;
+        line-height: 69px;
+        font-weight: bold;
+      }
+
+      &-description {
+        font-size: 20px;
+        color: #333;
+        margin-bottom: 2rem;
+      }
+
+      &-btn {
+        width: 200px;
+        height: 44px;
+        position: absolute;
+        bottom: -23px;
+        cursor: pointer;
+        background: rgb(51, 51, 51);
+        box-shadow: rgba(255, 163, 148, 0.1) 0px 5px 10px;
+        border: none;
+        border-radius: 5px;
+        font-family: Alegreya;
+        font-weight: bold;
+        font-size: 20px;
+        text-align: center;
+        color: #ffffff;
+        transition: all 0.8s cubic-bezier(0.2, 0.8, 0.2, 1) 0s;
+
+        &:hover {
+          transform: translateY(-3px);
+          opacity: 0.7;
+        }
+      }
+    }
+
+    .container-sun {
+      grid-area: sun;
+      align-self: end;
+      justify-self: start;
+      display: flex;
+      align-items: flex-end;
+
+      @media (max-width: 768px) {
+        justify-self: center;
+      }
+
+      img {
+        max-width: 400px;
+        min-width: 200px;
+        width: 100%;
+
+        @media (max-width: 768px) {
+          max-width: 600px;
+        }
+      }
+    }
+  }
+}
